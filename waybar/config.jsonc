@@ -1,0 +1,235 @@
+{
+    /* ============================ BASICS ============================ */
+    "layer": "top",
+    "position": "bottom",
+    "margin-bottom": 10,
+    "margin-top": -4,
+    "margin-right": 16,
+    "margin-left": 16,
+    "fixed-center": true,
+    "modules-left": [
+        "sway/workspaces",
+        "mpris",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "clock#date",
+        "custom/spacer",
+        "sway/window",
+        "custom/spacer",
+        "clock#time"
+    ],
+    "modules-right": [
+        "privacy",
+        "group/info",
+        "pulseaudio#volume",
+        "battery",
+        "tray",
+        "custom/notifs"
+    ],
+    /* --------------------------- Info Tray -------------------------- */
+    "group/info": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/info-toggle",
+            "cpu",
+            "memory",
+            "idle_inhibitor",
+            "network",
+            "backlight",
+            "pulseaudio#mic"
+        ],
+        "drawer": {
+            "transition-duration": 300,
+            "click-to-reveal": true
+        }
+    },
+    /* ============================ MODULES =========================== */
+    /* ----------------------------- Sway ----------------------------- */
+    "sway/mode": {
+        "format": " {}",
+        "tooltip": false
+    },
+    "sway/window": {
+        "format": "{app_id}",
+        "tooltip": false,
+        "rewrite": { // Finish later
+            "^$": "welcome back",
+            ".*\\..*\\.(.*)": "$1",
+            "discord-stable": "discord",
+            ".*Signal.*": "signal",
+            ".*Thunderbird.*": "thunderbird",
+            ".*Nautilus.*": "files"
+        }
+    },
+    "sway/workspaces": {
+        "all-outputs": true,
+        "smooth-scrolling-threshold": 3,
+        "persistent-workspaces": {
+            "I": [],
+            "II": [],
+            "III": []
+        }
+    },
+    /* ---------------------------- Custom ---------------------------- */
+    "custom/info-toggle": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/notifs": {
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰂠",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/spacer": {
+        "format": "//",
+        "tooltip": false
+    },
+    /* ------------------------ Everything Else ----------------------- */
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-icons": ["󰃛", "󰃝", "󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "smooth-scrolling-threshold": 1,
+        "scroll-step": 5,
+        "tooltip-format": "{percent}%"
+    },
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 20,
+            "critical": 5
+        },
+        "format": "{icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-charging": ""
+    },
+    "clock#date": {
+        "format": "{0:%m}<span size=\"12pt\" rise=\"1250\">月</span>{0:%d}<span size=\"12pt\" rise=\"1250\">日</span>",
+        "tooltip": false
+    },
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%R:%S}",
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 5,
+        "format": "",
+        "max-length": 10
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    // Removed for now because it was causing major lag
+    // "keyboard-state": {
+    //     "format": {
+    //         "capslock": "{icon}"
+    //     },
+    //     "format-icons": {
+    //         "locked": "󰪛",
+    //         "unlocked": ""
+    //     },
+    //     "numlock": false,
+    //     "capslock": true
+    // },
+    "memory": {
+        "interval": 10,
+        "format": "",
+        "max-length": 10
+    },
+    "network": {
+        "interval": 10,
+        "format": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format": "{ifname} via {gwaddr} ({signalStrength}%)",
+        "format-disconnected": "No Network 󰤫",
+        "on-click": "nm-connection-editor"
+    },
+    "privacy": {
+        "icon-size": 18,
+        "transition-duration": 300,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": false
+            },
+            {
+                "type": "audio-in",
+                "tooltip": false
+            }
+        ],
+        "ignore-monitor": true
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pactl set-source-mute \\@DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pavucontrol -t 4",
+        "smooth-scrolling-threshold": 1,
+        "tooltip": false
+    },
+    "pulseaudio#volume": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute \\@DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol -t 1",
+        "smooth-scrolling-threshold": 1,
+        "tooltip-format": "{volume}%",
+        "max-volume": 100
+    },
+    "tray": {
+        "spacing": 16
+    },
+    "mpris": {
+        "interval": 1,
+        "format": "{status_icon} {dynamic}",
+        "tooltip": false,
+        "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": ""
+        },
+        "title-len": 20,
+        "dynamic-order": ["title", "artist", "position", "length"],
+        "dynamic-len": 36,
+        "dynamic-separator": " // ",
+        "dynamic-importance-order": ["artist", "title"]
+    }
+}
