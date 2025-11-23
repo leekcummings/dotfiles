@@ -1,0 +1,110 @@
+@define-color background #06112B;
+@define-color background-light #1E2D5D;
+@define-color text @EDE7B6;
+@define-color accent #3B8994;
+@define-color orange #D37537;
+@define-color red #C82D31;
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "SpaceMono Nerd Font", "Space Mono", "Space Grotesk", "Noto Sans SC";
+    color: @text;
+    background: transparent;
+}
+
+.modules-left, .modules-center, .modules-right {
+    background-color: @background;
+    background: linear-gradient(0deg, @background 60%, @background-light 100%);
+    border: solid 2px @accent;
+}
+
+.module, tooltip label {
+    padding: 4px 12px 4px 12px;
+}
+
+#custom-spacer, #workspaces {
+    padding: 0;
+}
+
+tooltip {
+    background-color: @background;
+    border: solid 2px @accent;
+    border-radius: 0px;
+}
+
+/* ========================= Left Modules ========================= */
+#workspaces button {
+    padding: 0px 8px 0px 10px;
+    border-radius: 0px;
+}
+
+#workspaces button.focused {
+    padding: 0px 7px 0px 9px;
+    background-color: @accent;
+    background: linear-gradient(0deg,rgba(59, 137, 148, 1) 60%, rgba(191, 207, 173, 1) 100%);
+    border: groove 2px @accent;
+    transition-duration: 500ms;
+}
+
+/* ---------------------- Group/info Modules ---------------------- */
+.info-items {
+    background-color: @accent;
+    background: linear-gradient(0deg, @accent 60%, #BFCFAD 100%);
+    border-top: groove 2px @accent;
+    border-bottom: groove 2px @accent;
+}
+
+#custom-info-toggle {
+    padding: 4px 15px 4px 10px;
+    background-color: @background;
+    background: linear-gradient(0deg, @background 60%, @background-light 100%);
+    border-right: solid 2px @accent;
+}
+
+#cpu {
+    padding: 4px 12px 4px 11px;
+}
+
+#memory {
+    padding: 4px 16px 4px 12px;
+}
+
+#pulseaudio.mic {
+    padding: 4px 12px 4px 12px;
+    border-right: solid 2px @accent;
+}
+
+/* ========================= Right Modules ======================== */
+#pulseaudio.volume {
+    padding: 4px 16px 4px 11px;
+}
+
+#tray {
+    padding: 4px 8px 4px 10px;
+}
+
+#custom-notifs {
+    padding: 4px 13px 4px 12px;
+}
+
+/* ---------------------------- Battery --------------------------- */
+#battery {
+    padding: 4px 16px 4px 11px;
+}
+
+#battery:not(.charging).warning {
+    background-color: @orange;
+    animation: blink 1s steps(2) infinite;
+}
+
+#battery:not(.charging).critical {
+    background-color: @red;
+    animation: blink 0.25s steps(2) infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
