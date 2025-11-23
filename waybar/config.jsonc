@@ -41,6 +41,7 @@
         ],
         "drawer": {
             "transition-duration": 300,
+            "children-class": "info-items",
             "click-to-reveal": true
         }
     },
@@ -64,11 +65,24 @@
     },
     "sway/workspaces": {
         "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "〇"
+        },
         "smooth-scrolling-threshold": 3,
         "persistent-workspaces": {
-            "I": [],
-            "II": [],
-            "III": []
+            "1": [],
+            "2": [],
+            "3": []
         }
     },
     /* ---------------------------- Custom ---------------------------- */
@@ -147,18 +161,6 @@
             "deactivated": ""
         }
     },
-    // Removed for now because it was causing major lag
-    // "keyboard-state": {
-    //     "format": {
-    //         "capslock": "{icon}"
-    //     },
-    //     "format-icons": {
-    //         "locked": "󰪛",
-    //         "unlocked": ""
-    //     },
-    //     "numlock": false,
-    //     "capslock": true
-    // },
     "memory": {
         "interval": 10,
         "format": "",
@@ -172,7 +174,7 @@
         "format-disconnected": "No Network 󰤫",
         "on-click": "nm-connection-editor"
     },
-    "privacy": {
+    "privacy": { // come back here...
         "icon-size": 18,
         "transition-duration": 300,
         "modules": [
@@ -215,7 +217,7 @@
         "max-volume": 100
     },
     "tray": {
-        "spacing": 16
+        "spacing": 17
     },
     "mpris": {
         "interval": 1,
