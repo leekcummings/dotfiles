@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+download_files() {
+    type=$1
+    echo " Creating .$type..."
+    cd ~/Music/"$type" || exit
+    spotdl --format "$type" download "$url"
+}
+
+# Check if any arguments
+if [ -z "$1" ]; then
+    echo " Error: No arguments supplied"
+    exit
+fi
+
+# $1=song link
+# $2=file type
+url=$1
+if [ -z "$2" ]; then
+    download_files "flac"
+    download_files "mp3"
+elif [ "$2" = "flac" ] || [ "$2" = "f" ]; then
+    download_files "flac"
+elif [ "$2" = "mp3" ] || [ "$2" = "m" ]; then
+    download_files "mp3"
+else
+    echo " Error: \".$2\" is an unknown filetype"
+fi
