@@ -175,7 +175,7 @@
         "on-click": "nm-connection-editor"
     },
     "privacy": { // come back here...
-        "icon-size": 18,
+        "icon-size": 13,
         "transition-duration": 300,
         "modules": [
             {
@@ -217,7 +217,7 @@
         "max-volume": 100
     },
     "tray": {
-        "spacing": 17
+        "spacing": 19
     },
     "mpris": {
         "interval": 1,

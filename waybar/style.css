@@ -44,7 +44,6 @@ tooltip {
     background-color: @accent;
     background: linear-gradient(0deg,rgba(59, 137, 148, 1) 60%, rgba(191, 207, 173, 1) 100%);
     border: groove 2px @accent;
-    transition-duration: 500ms;
 }
 
 /* ---------------------- Group/info Modules ---------------------- */
@@ -56,14 +55,14 @@ tooltip {
 }
 
 #custom-info-toggle {
-    padding: 4px 15px 4px 10px;
+    padding: 4px 15px 4px 11px;
     background-color: @background;
     background: linear-gradient(0deg, @background 60%, @background-light 100%);
-    border-right: solid 2px @accent;
 }
 
 #cpu {
     padding: 4px 12px 4px 11px;
+    border-left: groove 2px @accent;
 }
 
 #memory {
@@ -72,12 +71,16 @@ tooltip {
 
 #pulseaudio.mic {
     padding: 4px 12px 4px 12px;
-    border-right: solid 2px @accent;
+    border-right: ridge 2px @accent;
 }
 
 /* ========================= Right Modules ======================== */
+#privacy {
+    padding: 4px 10px 4px 12px;
+}
+
 #pulseaudio.volume {
-    padding: 4px 16px 4px 11px;
+    padding: 4px 18px 4px 11px;
 }
 
 #tray {
