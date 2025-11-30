@@ -1,0 +1,66 @@
+@define-color background #06112B;
+@define-color background-light #1E2D5D;
+@define-color text #EDE7B6;
+@define-color accent #3B8994;
+
+* {
+    margin: 0;
+    padding: 0;
+    color: @text;
+    font-family: "SpaceMono Nerd Font", "Space Mono", "Space Grotesk", "Noto Sans SC";
+}
+
+#window {
+    background-color: @background;
+    background: linear-gradient(0deg, @background 60%, @background-light 100%);
+    border: solid 2px @accent;
+}
+
+#input {
+    padding: 2px;
+    margin: 2px 2px 0px 2px;
+    background-color: @background;
+    border-radius: 0px;
+}
+
+#input * {
+    padding: 0px 12px 0px 12px;
+}
+
+#input:focus {
+    box-shadow: none;
+}
+
+#scroll {
+    margin: 0px;
+    padding: 16px;
+    border-top: solid 2px @accent;
+}
+
+#img {
+    padding: 4px;
+}
+
+#text {
+    margin: 4px 4px 4px 4px;
+}
+
+#entry > * {
+    padding: 3px 2px 1px 2px;
+    border-bottom: solid 2px @accent;
+}
+
+#entry:selected {
+    background-color: @accent;
+    background: linear-gradient(0deg,rgba(59, 137, 148, 1) 60%, rgba(191, 207, 173, 1) 100%);
+    border: groove 2px @accent;
+}
+
+#entry:selected #img {
+    padding: 0px 4px 0px 2px;
+}
+
+#entry:selected #text {
+    margin: 2px 4px 2px 4px;
+    font-weight: bold;
+}

@@ -1,0 +1,9 @@
+show=drun
+width=640
+prompt=
+allow_images=true
+hide_scroll=true
+insensitive=true
+lines=10
+no_actions=true
+image_size=20
