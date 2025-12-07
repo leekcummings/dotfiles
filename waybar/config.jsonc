@@ -20,6 +20,7 @@
         "clock#time"
     ],
     "modules-right": [
+//  "power-profiles-daemon",
         "privacy",
         "group/info",
         "pulseaudio#volume",
@@ -60,7 +61,8 @@
             "discord-stable": "discord",
             ".*Signal.*": "signal",
             ".*Thunderbird.*": "thunderbird",
-            ".*Nautilus.*": "files"
+            ".*Nautilus.*": "files",
+            ".*webapp_.*": "github" 
         }
     },
     "sway/workspaces": {
@@ -79,11 +81,6 @@
             "10": "〇"
         },
         "smooth-scrolling-threshold": 3,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        }
     },
     /* ---------------------------- Custom ---------------------------- */
     "custom/info-toggle": {
@@ -117,7 +114,7 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon}",
-        "format-icons": ["󰃛", "󰃝", "󰃞", "󰃟", "󰃠"],
+        "format-icons": ["󰃝", "󰃞", "󰃟", "󰃠"],
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
         "smooth-scrolling-threshold": 1,
@@ -203,11 +200,7 @@
         "format-muted": "",
         "format-icons": {
             "headphone": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "default": ["", "", ""]
         },
         "scroll-step": 5,
         "on-click": "pactl set-sink-mute \\@DEFAULT_SINK@ toggle",
@@ -217,9 +210,10 @@
         "max-volume": 100
     },
     "tray": {
-        "spacing": 19
+        "spacing": 20
     },
     "mpris": {
+        "player": "playerctld",
         "interval": 1,
         "format": "{status_icon} {dynamic}",
         "tooltip": false,
@@ -233,5 +227,16 @@
         "dynamic-len": 36,
         "dynamic-separator": " // ",
         "dynamic-importance-order": ["artist", "title"]
-    }
+    },
+    "power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+  }
+}
 }

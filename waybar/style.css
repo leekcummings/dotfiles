@@ -1,9 +1,4 @@
-@define-color background #06112B;
-@define-color background-light #1E2D5D;
-@define-color text @EDE7B6;
-@define-color accent #3B8994;
-@define-color orange #D37537;
-@define-color red #C82D31;
+@import url("../colors.css");
 
 * {
     padding: 0;
@@ -42,14 +37,14 @@ tooltip {
 #workspaces button.focused {
     padding: 0px 7px 0px 9px;
     background-color: @accent;
-    background: linear-gradient(0deg,rgba(59, 137, 148, 1) 60%, rgba(191, 207, 173, 1) 100%);
+    background: linear-gradient(0deg, @accent 60%, @accent-light 100%);
     border: groove 2px @accent;
 }
 
 /* ---------------------- Group/info Modules ---------------------- */
 .info-items {
     background-color: @accent;
-    background: linear-gradient(0deg, @accent 60%, #BFCFAD 100%);
+    background: linear-gradient(0deg, @accent 60%, @accent-light 100%);
     border-top: groove 2px @accent;
     border-bottom: groove 2px @accent;
 }
@@ -69,9 +64,18 @@ tooltip {
     padding: 4px 16px 4px 12px;
 }
 
+#network {
+    padding: 4px 13px 4px 13px;
+}
+
 #pulseaudio.mic {
-    padding: 4px 12px 4px 12px;
+    padding: 4px 13px 4px 15px;
     border-right: ridge 2px @accent;
+}
+
+/* Adjust padding for muted icon */
+#pulseaudio.mic.source-muted {
+    padding: 4px 17px 4px 11px;
 }
 
 /* ========================= Right Modules ======================== */
@@ -80,15 +84,15 @@ tooltip {
 }
 
 #pulseaudio.volume {
-    padding: 4px 18px 4px 11px;
+    padding: 4px 17px 4px 11px;
 }
 
 #tray {
-    padding: 4px 8px 4px 10px;
+    padding: 4px 12px 4px 12px;
 }
 
 #custom-notifs {
-    padding: 4px 13px 4px 12px;
+    padding: 4px 13px 4px 9px;
 }
 
 /* ---------------------------- Battery --------------------------- */
@@ -98,16 +102,19 @@ tooltip {
 
 #battery:not(.charging).warning {
     background-color: @orange;
+    background: linear-gradient(0deg, @orange 60%, @orange-light 100%);
     animation: blink 1s steps(2) infinite;
 }
 
 #battery:not(.charging).critical {
     background-color: @red;
+    background: linear-gradient(0deg, @red 60%, @orange-light 100%);
     animation: blink 0.25s steps(2) infinite;
 }
 
 @keyframes blink {
     50% {
         background-color: transparent;
+        background: transparent;
     }
 }
